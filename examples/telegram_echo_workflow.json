@@ -1,0 +1,97 @@
+{
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "TelegramListener",
+      "pos": [100, 100],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "message_text",
+          "type": "STRING",
+          "links": [1],
+          "slot_index": 0
+        },
+        {
+          "name": "chat_id",
+          "type": "STRING",
+          "links": [2],
+          "slot_index": 1
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "YOUR_BOT_TOKEN_HERE",
+        30
+      ],
+      "color": "#2196F3",
+      "bgcolor": "#1976D2"
+    },
+    {
+      "id": 2,
+      "type": "ShowText",
+      "pos": [600, 100],
+      "size": {
+        "0": 300,
+        "1": 200
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "SaveToTelegram",
+      "pos": [600, 350],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "chat_id",
+          "type": "STRING",
+          "link": 2
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "YOUR_BOT_TOKEN_HERE",
+        "",
+        "Echo: [Received message will be shown here]"
+      ],
+      "color": "#4CAF50",
+      "bgcolor": "#388E3C"
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "STRING"],
+    [2, 1, 1, 3, 0, "STRING"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

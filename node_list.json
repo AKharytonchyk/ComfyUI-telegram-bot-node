@@ -1,0 +1,15 @@
+{
+    "name": "ComfyUI Telegram Bot Nodes",
+    "description": "Custom nodes for integrating Telegram bots with ComfyUI workflows. Listen for messages and send responses through Telegram.",
+    "version": "1.0.0",
+    "author": "Your Name",
+    "license": "MIT",
+    "reference": "https://github.com/yourusername/ComfyUI-telegram-bot-node",
+    "files": [
+        "https://github.com/yourusername/ComfyUI-telegram-bot-node"
+    ],
+    "install_type": "git-clone",
+    "pip": ["python-telegram-bot"],
+    "nodename_pattern": "Telegram",
+    "keywords": ["telegram", "bot", "messaging", "api", "chat"]
+}

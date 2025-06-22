@@ -18,14 +18,6 @@ class TelegramListener:
     A ComfyUI node that listens to Telegram messages and outputs the text content.
     """
     
-    def __init__(self):
-        self.bot_token = None
-        self.application = None
-        self.message_queue = queue.Queue()
-        self.chat_ids = {}  # Store chat IDs for responses
-        self.is_running = False
-        self.bot_thread = None
-        
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -49,6 +41,14 @@ class TelegramListener:
     FUNCTION = "listen_for_message"
     CATEGORY = "telegram"
     OUTPUT_NODE = False
+    
+    def __init__(self):
+        self.bot_token = None
+        self.application = None
+        self.message_queue = queue.Queue()
+        self.chat_ids = {}  # Store chat IDs for responses
+        self.is_running = False
+        self.bot_thread = None
     
     def listen_for_message(self, bot_token: str, timeout: int) -> Tuple[str, str]:
         """
@@ -143,9 +143,6 @@ class SaveToTelegram:
     A ComfyUI node that sends messages back to Telegram chats.
     """
     
-    def __init__(self):
-        self.applications = {}  # Store applications by bot token
-    
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -173,6 +170,9 @@ class SaveToTelegram:
     FUNCTION = "send_message"
     CATEGORY = "telegram"
     OUTPUT_NODE = True
+    
+    def __init__(self):
+        self.applications = {}  # Store applications by bot token
     
     def send_message(self, bot_token: str, chat_id: str, message: str) -> Tuple[str]:
         """
