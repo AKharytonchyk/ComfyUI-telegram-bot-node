@@ -103,6 +103,55 @@ This node sends messages back to Telegram chats.
 - Check that the required dependencies are installed
 - Verify that your firewall allows the connection to Telegram's servers
 
+## Development
+
+### Running Tests
+
+The project includes comprehensive unit tests to ensure reliability:
+
+```bash
+# Run all tests
+make test
+
+# Run tests with verbose output
+make test-verbose
+
+# Run tests with coverage report
+make test-coverage
+
+# Using the test runner directly
+python run_tests.py
+
+# Run specific test module
+python run_tests.py --specific telegram_nodes
+```
+
+### Code Quality
+
+```bash
+# Install development dependencies
+make install-dev
+
+# Run linting
+make lint
+
+# Format code
+make format
+
+# Run all checks
+make check-all
+```
+
+### Test Coverage
+
+The test suite covers:
+- Node class structure validation
+- Input/output type checking
+- Error handling and validation  
+- Integration between nodes
+- Project structure compliance
+- ComfyUI Manager compatibility
+
 ## License
 
 MIT License
