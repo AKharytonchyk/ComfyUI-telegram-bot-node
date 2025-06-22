@@ -4,7 +4,14 @@ ComfyUI Telegram Bot Custom Nodes
 A collection of custom nodes for ComfyUI that enable Telegram bot integration.
 """
 
-from .telegram_nodes import TelegramListener, SaveToTelegram
+try:
+    from .telegram_nodes import TelegramListener, SaveToTelegram
+except ImportError:
+    # Handle case where running tests or importing without package structure
+    import sys
+    import os
+    sys.path.insert(0, os.path.dirname(__file__))
+    from telegram_nodes import TelegramListener, SaveToTelegram
 
 # Version info
 __version__ = "1.0.0"

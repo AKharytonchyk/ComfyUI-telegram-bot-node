@@ -30,3 +30,40 @@ dependencies = [
 Homepage = "https://github.com/yourusername/ComfyUI-telegram-bot-node"
 Repository = "https://github.com/yourusername/ComfyUI-telegram-bot-node"
 Issues = "https://github.com/yourusername/ComfyUI-telegram-bot-node/issues"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["telegram_nodes"]
+
+[tool.coverage.run]
+source = ["."]
+omit = ["tests/*", "setup.py", "run_tests.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
