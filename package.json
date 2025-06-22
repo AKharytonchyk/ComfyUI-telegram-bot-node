@@ -1,0 +1,26 @@
+{
+    "name": "comfyui-telegram-bot-node",
+    "version": "1.0.0",
+    "description": "ComfyUI custom nodes for Telegram bot integration",
+    "main": "__init__.py",
+    "scripts": {
+        "install": "pip install -r requirements.txt"
+    },
+    "keywords": [
+        "comfyui",
+        "telegram",
+        "bot",
+        "custom-nodes",
+        "ai"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yourusername/ComfyUI-telegram-bot-node.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yourusername/ComfyUI-telegram-bot-node/issues"
+    },
+    "homepage": "https://github.com/yourusername/ComfyUI-telegram-bot-node#readme"
+}
