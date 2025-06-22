@@ -1,0 +1,12 @@
+{
+    "name": "ComfyUI Telegram Bot Nodes",
+    "description": "Custom nodes for Telegram bot integration in ComfyUI",
+    "version": "1.0.0",
+    "nodes": [
+        "TelegramListener",
+        "SaveToTelegram"
+    ],
+    "web_directory": "./web",
+    "install_type": "git-clone",
+    "reference": "https://github.com/yourusername/ComfyUI-telegram-bot-node"
+}

@@ -9,6 +9,12 @@ This package provides custom nodes for ComfyUI that enable Telegram bot integrat
 
 ## Installation
 
+### Method 1: ComfyUI Manager (Recommended)
+1. Install [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager)
+2. Go to Manager → Install Custom Nodes
+3. Search for "Telegram Bot" and install
+
+### Method 2: Manual Installation
 1. Clone this repository into your ComfyUI custom nodes directory:
    ```bash
    cd ComfyUI/custom_nodes/
@@ -18,10 +24,19 @@ This package provides custom nodes for ComfyUI that enable Telegram bot integrat
 2. Install the required dependencies:
    ```bash
    cd ComfyUI-telegram-bot-node
-   pip install -r requirements.txt
+   # On Linux/Mac:
+   ./install.sh
+   # On Windows:
+   install.bat
    ```
 
 3. Restart ComfyUI
+
+### Method 3: Manual Dependency Installation
+If the install scripts don't work, manually install the dependencies:
+```bash
+pip install python-telegram-bot==20.7
+```
 
 ## Setup
 

@@ -30,8 +30,17 @@ class TelegramListener:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "bot_token": ("STRING", {"default": "", "multiline": False}),
-                "timeout": ("INT", {"default": 10, "min": 1, "max": 300}),
+                "bot_token": ("STRING", {
+                    "default": "", 
+                    "multiline": False,
+                    "placeholder": "Enter your Telegram bot token here"
+                }),
+                "timeout": ("INT", {
+                    "default": 10, 
+                    "min": 1, 
+                    "max": 300,
+                    "step": 1
+                }),
             }
         }
     
@@ -39,18 +48,25 @@ class TelegramListener:
     RETURN_NAMES = ("message_text", "chat_id")
     FUNCTION = "listen_for_message"
     CATEGORY = "telegram"
+    OUTPUT_NODE = False
     
     def listen_for_message(self, bot_token: str, timeout: int) -> Tuple[str, str]:
         """
         Listen for Telegram messages and return the message text and chat ID.
         """
-        if not bot_token:
+        if not bot_token or not bot_token.strip():
             return ("Error: Bot token is required", "")
+            
+        if not bot_token.startswith("bot") and ":" not in bot_token:
+            return ("Error: Invalid bot token format", "")
             
         # If bot token changed or not running, restart the bot
         if self.bot_token != bot_token or not self.is_running:
             self._stop_bot()
-            self._start_bot(bot_token)
+            try:
+                self._start_bot(bot_token)
+            except Exception as e:
+                return (f"Error starting bot: {str(e)}", "")
         
         # Wait for a message with timeout
         start_time = time.time()
@@ -134,9 +150,21 @@ class SaveToTelegram:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "bot_token": ("STRING", {"default": "", "multiline": False}),
-                "chat_id": ("STRING", {"default": "", "multiline": False}),
-                "message": ("STRING", {"default": "", "multiline": True}),
+                "bot_token": ("STRING", {
+                    "default": "", 
+                    "multiline": False,
+                    "placeholder": "Enter your Telegram bot token here"
+                }),
+                "chat_id": ("STRING", {
+                    "default": "", 
+                    "multiline": False,
+                    "placeholder": "Chat ID from Telegram Listener"
+                }),
+                "message": ("STRING", {
+                    "default": "", 
+                    "multiline": True,
+                    "placeholder": "Message to send"
+                }),
             }
         }
     
@@ -144,6 +172,7 @@ class SaveToTelegram:
     RETURN_NAMES = ("status",)
     FUNCTION = "send_message"
     CATEGORY = "telegram"
+    OUTPUT_NODE = True
     
     def send_message(self, bot_token: str, chat_id: str, message: str) -> Tuple[str]:
         """
