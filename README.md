@@ -19,11 +19,11 @@ This package provides custom nodes for ComfyUI that enable Telegram bot integrat
    ```bash
    cd ComfyUI/custom_nodes/
    git clone <repository-url> ComfyUI-telegram-bot-node
+   cd ComfyUI-telegram-bot-node
    ```
 
 2. Install the required dependencies:
    ```bash
-   cd ComfyUI-telegram-bot-node
    # On Linux/Mac:
    ./install.sh
    # On Windows:
@@ -31,6 +31,19 @@ This package provides custom nodes for ComfyUI that enable Telegram bot integrat
    ```
 
 3. Restart ComfyUI
+
+**Important**: Make sure the final directory structure looks like:
+```
+ComfyUI/
+├── main.py (or comfyui_main.py)
+├── custom_nodes/
+│   └── ComfyUI-telegram-bot-node/
+│       ├── __init__.py
+│       ├── telegram_nodes.py
+│       ├── requirements.txt
+│       └── ... (other files)
+└── ... (other ComfyUI files)
+```
 
 ### Method 3: Manual Dependency Installation
 If the install scripts don't work, manually install the dependencies:
